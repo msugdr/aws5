@@ -1,7 +1,105 @@
 <!DOCTYPE html>
 <html>
-<body>
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-</body>
+    <meta charset="utf-8">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width max-width=600px">
+    <link href="https://master.dvdzx9ljiawyq.amplifyapp.com/css.css" rel="stylesheet">
+<head>
+<style>
+            :root {--d: 0;}
+</style>
+</head>
+    <body>
+        <header>TEXT 制御<br>
+<span style="font-size:70%">styleタグによる</span>
+</header>
+        <main>
+<h2>長文の表示</h2>
+HTMLは日本語の長い文章は、折り返してくれる。例えば、この行のように。
+ところが、英文は単語と単語の間でしか改行しないので長い単語、たとえば認証用の
+トークンのようなものの場合、改行されないのではみ出してしまう。下の例ように。
+<br>（例）<br>
+QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm<br>
+<h3>Conclusion</h3>
+スタイル指定を次のようにする。<br>
+折り返されて綺麗に表示<br>
+text-align:justify;overflow-wrap:break-word<br>
+スクロールして表示<br>
+overflow: scroll
+<h2>折り返し制御</h2>
+<h3>word-break:break-all</h3>
+問答無用で折り返します。
+<br>（例）<br>
+<span style="word-break:break-all">
+QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm
+</span>
+<h3>word-break:keep-all</h3>
+区切り以外では折り返さないスタイルです。禁則処理を守ります。<br>（例）<br>
+<span style="word-break:keep-all">
+日本語の場合も読点や句点および空白あるいは括弧などがなければ「折り返す」ことなく表示するスタイルです。句点があったの折り返されるはずです。<br>
+QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm<br>
+</span>
+
+<h3>overflow-wrap:break-word</h3>
+禁則処理をできるだけ守るが、非常に長いものは折り返す。<br>（例）<br>
+<span style="overflow-wrap:break-word">
+日本語の場合も読点や句点および空白あるいは括弧などがなければ「折り返す」ことなく表示するスタイルです。句点があったの折り返されるはずです。<br>
+QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm<br>
+</span>
+
+<h2>空白と折り返し制御</h2>
+通常は半角の空白は１つにまとめられます。これを変更することおよび改行制御も同時に
+するのが white-space です。
+<h3>white-space:pre</h3>
+空白・改行をそのまま維持する。折り返しはしない。&lt;pre>タグと同じ<br>（例）<br>
+<span style="white-space:pre">
+function myFirstFunction (boid) {
+    for (int i; i<10; i++) {
+        if (x = classX.getValue() ) { classX.setValue("LOVE")} else { classX.setValue("HITE")};
+    }
+}
+</span>
+<h3>white-space:pre-wrap</h3>
+空白・改行をそのまま維持して折り返す。&lt;pre>タグにスタイルの上書きができる<br>（例）<br>
+<pre style="white-space:pre-wrap">
+function myFirstFunction (boid) {
+    for (int i; i<10; i++) {
+        if (x = classX.getValue() ) { classX.setValue("LOVE")} else { classX.setValue("HITE")};
+    }
+}
+</pre>
+<h2>文字の配置</h2>
+文字の配置は text-align で左寄せ（標準）中央 (center)、右寄せ (right)
+があるが、均等などもある。
+<h3>text-align:justify</h3>
+<span style="text-align: justify">
+インラインコンテンツは両端揃えされます。テキストは最終行を除いて、その左右の端が行ボックスの左右の端に揃うように間隔が空けられます。最終行を除いてというのがポイントです。最終行は改行タグなどで判断しているようです。<br>
+Japanese font is mostly same-width. Thus there are amall deference from text-align:justify
+between overflow-wrap:break-word.
+QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm
+</span>
+
+<hr>
+text-align:justifyだけでは折り返しが行われないので、overflow-wrap:break-wordを合わせて
+指定する方がよい。<br>（例）<br>
+<span style="text-align:justify;overflow-wrap:break-word">
+日本語の場合も読点や句点および空白あるいは括弧などがなければ「折り返す」ことなく表示するスタイルです。句点があったの折り返されるはずです。<br>
+QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm<br>
+</span>
+
+
+
+<h2>フレーム</h2>
+プログラムなどを記述するためのフレームは次のようなスタイルを pre タグに上書きすればよい。<br>
+height:5rem;overflow: scroll;color:white;background-color:darkgreen;padding:10px;
+
+<pre style="height:5rem;overflow: scroll;color:white;background-color:darkgreen;padding:5px 5px 5px 10px;">
+function myFirstFunction (boid) {
+    for (int i; i<10; i++) {
+        if (x = classX.getValue() ) { classX.setValue("LOVE")} else { classX.setValue("HITE")};
+    }
+}
+</pre>
+        </main>
+    </body>
 </html>
